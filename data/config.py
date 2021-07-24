@@ -1,18 +1,16 @@
-from environs import Env
+import os
 
-env = Env()
-env.read_env()
-API_TOKEN = env.str("API_TOKEN")
-API_ID = env.str("API_ID")
-API_HASH = env.str("API_HASH")
+API_TOKEN = os.environ.get("API_TOKEN")
+API_ID = os.environ.get("API_ID")
+API_HASH = os.environ.get("API_HASH")
 
-IP = env.str("IP")
-PGUSER = env.str("PGUSER")
-PGPASSWORD = env.str("PGPASSWORD")
+IP = os.environ.get("IP")
+PGUSER = os.environ.get("PGUSER")
+PGPASSWORD = os.environ.get("PGPASSWORD")
 DB_HOST = IP
-DATABASE = env.str("DATABASE")
+DATABASE = os.environ.get("DATABASE")
 POSTGRES_URL = f"postgresql://{PGUSER}:{PGPASSWORD}@{DB_HOST}/{DATABASE}"
-CHAT_ID = -552814269
+CHAT_ID = -1001573784593
 
 CHATS = []
 KEYWORDS = []
