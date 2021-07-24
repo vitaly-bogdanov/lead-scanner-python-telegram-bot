@@ -11,7 +11,6 @@ gino==1.0.1
 idna==3.1
 multidict==5.1.0
 pip==21.1.1
-pkg-resources==0.0.0
 pyaes==1.6.1
 Pyrogram==1.2.9
 PySocks==1.7.1
