@@ -18,7 +18,7 @@ services:
     container_name: bot
     build:
       context: .
-    command: python3 app.py
+    command: python3 run.py
     restart: on-failure
     env_file:
       - .env
