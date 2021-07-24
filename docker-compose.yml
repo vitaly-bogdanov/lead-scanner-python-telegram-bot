@@ -1,0 +1,34 @@
+version: "3"
+
+services:
+  db:
+    container_name: db
+    image: postgres:alpine
+    restart: on-failure
+    environment:
+      POSTGRES_USER: $PGUSER
+      POSTGRES_PASSWORD: $PGPASSWORD
+      POSTGRES_DB: $PGDB
+    networks:
+      - bot
+    volumes:
+    - ./pgdata:/var/lib/postgresql/data
+
+  bot:
+    container_name: bot
+    build:
+      context: .
+    command: python3 app.py
+    restart: on-failure
+    env_file:
+      - .env
+    environment:
+      POSTGRES_HOST: db
+    depends_on:
+      - db
+    networks:
+      - bot
+
+networks:
+  bot:
+    driver: bridge
